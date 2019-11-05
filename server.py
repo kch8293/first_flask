@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return '<h1>Why so easy</h1>'
-
+   return render_template('index.html')
+   # by default looks for index.html inside a templates folder in the same directory as this script.
 
 @app.route("/another")
 def show():
