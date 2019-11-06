@@ -1,10 +1,11 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-   return render_template('index.html')
-   # by default looks for index.html inside a templates folder in the same directory as this script.
+@app.route("/<name>")
+def index(name):
+    name = name.capitalize()
+    return render_template('index.html', name = name)
+    # by default looks for index.html inside a templates folder in the same directory as this script.
 
 @app.route("/another")
 def show():
